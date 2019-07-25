@@ -50,5 +50,28 @@ const timer = setInterval(() => {
     return clearInterval(timer);
   }
   console.log('hey');
-  count++;
+  count++
 }, 1000);
+
+
+// from notes */
+import Garden from './classes/garden';
+const layout = [
+  ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
+  ['#', '@', '$', , '#', '$', , , , '#'],
+  ['#', '#', , , '$', '$', , '$', , '#'],
+  ['#', , '$', '&', '$', , , '$', , '#'],
+  ['#', , '$', , , '$', , , , '#'],
+  ['#', , '$', , '$', , '$', , , '#'],
+  ['#', , '$', , '$', , '$', , , '#'],
+  ['#', , , , , '$', , '$', , '#'],
+  ['#', , '&', '$', '$', '&', , '$', , '#'],
+  ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#']
+];
+
+const garden = new Garden(layout, 'garden-1');
+console.log(garden);
+
+document.getElementById('pause').addEventListener('click', function() {
+  garden.pause();
+});
