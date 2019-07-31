@@ -1,61 +1,40 @@
+import Gnome from './classes/gnome';
+import Troll from './classes/troll';
+
+const sam = new Troll();
+
 /*
-
 garden:
-	id - unique id
-	grid - 2D Arr
-	gnome - Gnome Class extends creature
-		name
-		health
-		lastAte
-	trolls - Troll class extends creature
-	plants
-	pause (defaults to false)
+    id - unique id
+    grid - 2D Arr
+    gnome - Gnome Class extends creature
+        name
+        health
+        lastAte
+    trolls - Troll class extends creature
+    plants
+    pause (defaults to false)
 
-	public:
-	-start()
-	-stop()
-	-pause()
-	-save()
+    public:
+    -start()
+    -stop()
+    -pause()
+    -save()
 
-	private:
-	-genGnome()
-	-genTroll()
-	-placeNewCreature()
-	-getTimeInNSeconds()
+    private:
+    -genGnome()
+    -genTroll()
+    -placeNewCreature()
+    -getTimeInNSeconds()
 
 creature:
 
 setInterval
 */
 
-const garden = {
-  name: 'sam',
-  id: 34,
-  blah: {
-    cool: true,
-    things: [5, 6, 7, 8]
-  }
-};
 
-localStorage.setItem('garden', JSON.stringify(garden));
-// console.log();
-const dehydratedGarden = localStorage.getItem('garden');
-const rehydratedGardenObject = JSON.parse(dehydratedGarden);
-console.log(rehydratedGardenObject);
-
-let count = 0;
-const pause = false;
-const timer = setInterval(() => {
-  if (count >= 20) {
-    return clearInterval(timer);
-  }
-  console.log('hey');
-  count++
-}, 1000);
-
-
-// from notes */
 import Garden from './classes/garden';
+
 const layout = [
   ['#', '#', '#', '#', '#', '#', '#', '#', '#', '#'],
   ['#', '@', '$', , '#', '$', , , , '#'],
@@ -70,8 +49,17 @@ const layout = [
 ];
 
 const garden = new Garden(layout, 'garden-1');
+
 console.log(garden);
 
 document.getElementById('pause').addEventListener('click', function() {
   garden.pause();
+});
+
+document.getElementById('start').addEventListener('click', function() {
+  garden.start();
+});
+
+document.getElementById('stop').addEventListener('click', function() {
+  garden.stop();
 });

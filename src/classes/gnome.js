@@ -14,3 +14,33 @@ export default class Gnome extends Creature {
     }
   }
 }
+
+tryPlant(){
+  if(genRandNum(1, 4) === 1){
+    this.planted++;
+    return true;
+  }
+  return false;
+}
+
+getTargets(grid) {
+  const targets [];
+  for(let rowMod = -1; rowMod <= 1; rowMod++){
+    for(let cellMod = -1; cellMod <= 1; cellMod++){
+      if(!(rowMod === 0 && cellMod === 0){
+        continue; 
+      } else if(this.isInGarden(
+        this.coords.x + cellMod,
+        this.coords.y + rowMod,
+        grid[0].length,
+        grid.length
+        ) && 
+        grid[this.coords.y + rowMod] [this.coords.x + cllMod] !== '#'
+        )
+    }
+  }
+  targets.push(
+    new Coords(this.coords(this.coords.x - 1,
+    )))
+}
+}

@@ -45,6 +45,9 @@ export default class Garden {
   render() {
     const root = document.getElementById(this.cssId);
     root.classList.add('garden');
+    for(let i = 0; i < this.grid; i++){
+      const newRow = document.createElement('div')
+    }
     this.grid.forEach((row, y) => {
       const newRow = document.createElement('div');
       row.forEach((cell, x) => {
@@ -81,4 +84,9 @@ export default class Garden {
   pause() {
     this.paused = true;
   }
+}
+
+stop() {
+  this.paused = true;
+  this.age = 0;
 }
